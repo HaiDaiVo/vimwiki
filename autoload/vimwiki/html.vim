@@ -1057,7 +1057,8 @@ function! s:process_tag_list(line, lists, lstLeadingSpaces) abort
     let lstRegExp = '^\s*'.s:bullets.'\s'
   elseif a:line =~# '^\s*'.s:numbers.'\s'
     let lstSym = matchstr(a:line, s:numbers)
-    let lstTagOpen = '<ol>'
+    let type = strpart(a:line, 0, 1)
+    let lstTagOpen = '<ol type="'.type.'">'
     let lstTagClose = '</ol>'
     let lstRegExp = '^\s*'.s:numbers.'\s'
   else
